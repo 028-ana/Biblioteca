@@ -11,7 +11,6 @@ class Cidade(models.Model):
         verbose_name = "Cidade"
         verbose_name_plural = "Cidades"
 
-
 class Autor(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome do autor")
     cidade = models.ForeignKey(Cidade, on_delete=models.CASCADE, verbose_name="Cidade do autor")
@@ -22,7 +21,6 @@ class Autor(models.Model):
     class Meta:
         verbose_name = "Autor"
         verbose_name_plural = "Autores"
-
 
 class Editora(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome da editora")
@@ -36,7 +34,6 @@ class Editora(models.Model):
         verbose_name = "Editora"
         verbose_name_plural = "Editoras"
 
-
 class Leitor(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome do leitor")
     email = models.CharField(max_length=100, verbose_name="Email do leitor")
@@ -49,7 +46,6 @@ class Leitor(models.Model):
         verbose_name = "Leitor"
         verbose_name_plural = "Leitores"
 
-
 class Genero(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Gênero")
 
@@ -60,14 +56,13 @@ class Genero(models.Model):
         verbose_name = "Gênero"
         verbose_name_plural = "Gêneros"
 
-
 class Livro(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome do livro")
     autor = models.ForeignKey(Autor, on_delete=models.CASCADE, verbose_name="Autor do livro")
     editora = models.ForeignKey(Editora, on_delete=models.CASCADE, verbose_name="Editora do livro")
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE, verbose_name="Gênero do livro")
     preco = models.IntegerField(verbose_name="Preço do livro")
-    data_pub = models.DateField(verbose_name="Data de publicação do livro")
+    data_plub = models.DateField(verbose_name="Data de publicação do livro")
     status = models.BooleanField(verbose_name="Status do livro")
 
     def __str__(self):
@@ -76,4 +71,3 @@ class Livro(models.Model):
     class Meta:
         verbose_name = "Livro"
         verbose_name_plural = "Livros"
-
